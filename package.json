@@ -1,0 +1,22 @@
+{
+  "name": "coffee_locker",
+  "version": "1.0.0",
+  "description": "Tracks Coffee roasted",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjmiller2543/coffee-locker.git"
+  },
+  "keywords": [
+    "coffee"
+  ],
+  "author": "Robert Miller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rjmiller2543/coffee-locker/issues"
+  },
+  "homepage": "https://github.com/rjmiller2543/coffee-locker#readme"
+}
