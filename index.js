@@ -89,6 +89,10 @@ router.post("/login",function(req,res){
   res.json({message : "success"});
 });
 
+router.get("/",function(req,res){
+  res.json({message : "running"});
+});
+
 
 // Register all our routes with /api
 app.use('/api', router);
