@@ -50,10 +50,7 @@ var port = process.env.PORT || 3000;
 // Create our Express router
 var router = express.Router();
 
-// Create endpoint handlers for /users
-router.route('/users')
-  .post(userController.postUsers)
-  .get(authController.isAuthenticated, userController.getUsers);
+
 
   // Create endpoint handlers for /clients
 router.route('/clients')
