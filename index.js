@@ -55,9 +55,7 @@ router.route('/users')
   .post(userController.postUsers)
   .get(authController.isAuthenticated, userController.getUsers);
 
-  // Create endpoint handlers for oauth2 token
-  router.route('/oauth2/token')
-    .post(authController.isClientAuthenticated, oauth2Controller.token);
+
 
 // Create endpoint handlers for /coffees
 router.route('/coffees')
