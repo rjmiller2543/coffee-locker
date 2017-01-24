@@ -3,12 +3,13 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Coffee = require('./models/coffee');
-var coffeeController = require(./controllers/coffee);
+var coffeeController = require('./controllers/coffee');
 var userController = require('./controllers/user');
 var passport = require('passport');
 var authController = require('./controllers/auth');
 var clientController = require('./controllers/client');
 var session = require('express-session');
+var oauth2Controller = require('./controllers/oauth2');
 
 var path = __dirname + '/views/';
 
@@ -58,6 +59,15 @@ router.route('/users')
 router.route('/clients')
   .post(authController.isAuthenticated, clientController.postClients)
   .get(authController.isAuthenticated, clientController.getClients);
+
+  // Create endpoint handlers for oauth2 authorize
+router.route('/oauth2/authorize')
+  .get(authController.isAuthenticated, oauth2Controller.authorization)
+  .post(authController.isAuthenticated, oauth2Controller.decision);
+
+// Create endpoint handlers for oauth2 token
+router.route('/oauth2/token')
+  .post(authController.isClientAuthenticated, oauth2Controller.token);
 
 // Create endpoint handlers for /coffees
 router.route('/coffees')
