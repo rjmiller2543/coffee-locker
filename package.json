@@ -4,7 +4,7 @@
   "description": "Tracks Coffee roasted",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
     "start": "node index.js"
   },
   "repository": {
