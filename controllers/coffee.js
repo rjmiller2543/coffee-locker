@@ -50,7 +50,7 @@ exports.putCoffee = function(req, res) {
     if (err)
       res.send(err);
 
-    res.json({ message: num + ' updated' });
+    res.json({ message: ' updated' });
   });
 };
 
