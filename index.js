@@ -55,10 +55,7 @@ router.route('/users')
   .post(userController.postUsers)
   .get(authController.isAuthenticated, userController.getUsers);
 
-  // Create endpoint handlers for /clients
-router.route('/clients')
-  .post(authController.isAuthenticated, clientController.postClients)
-  .get(authController.isAuthenticated, clientController.getClients);
+  
 
   // Create endpoint handlers for oauth2 authorize
 router.route('/oauth2/authorize')
