@@ -80,14 +80,6 @@ router.route('/coffees/:coffee_id')
   .put(authController.isAuthenticated, coffeeController.putCoffee)
   .delete(authController.isAuthenticated, coffeeController.deleteCoffee);
 
-router.get("/login",function(req,res){
-  res.sendFile(path + "index.html");
-});
-
-router.post("/login",function(req,res){
-  console.log(req);
-  res.json({message : "success"});
-});
 
 // Register all our routes with /api
 app.use('/api', router);
