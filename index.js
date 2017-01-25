@@ -37,7 +37,12 @@ app.use(bodyParser.urlencoded({
 }));
 // Set view engine to ejs
 app.set('view engine', 'ejs');
-
+// Use express session support since OAuth2orize requires it
+app.use(session({
+  secret: 'Super Secret Session Key',
+  saveUninitialized: true,
+  resave: true
+}));
 
 // Use environment defined port or 3000
 var port = process.env.PORT || 3000;
@@ -75,19 +80,20 @@ router.route('/coffees/:coffee_id')
   .put(authController.isAuthenticated, coffeeController.putCoffee)
   .delete(authController.isAuthenticated, coffeeController.deleteCoffee);
 
-router.get("/login",function(req,res){
+router.get('/login',function(req,res){
   res.sendFile(path + "index.html");
 });
 
-router.post("/login",function(req,res){
+router.post('/login',function(req,res){
   console.log(req);
   res.json({message : "success"});
 });
 
-router.get("/",function(req,res){
+var testRunning = router.route('/');
+
+testRunning.get(function (req, res) {
   res.json({message : "running"});
 });
-
 
 // Register all our routes with /api
 app.use('/api', router);
